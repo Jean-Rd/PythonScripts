@@ -1,11 +1,15 @@
-from student import Student
+import student
 
-estudiante = Student(Name='Jean', LastName='Rada', Age=21, University="UPEA")
+persona = student.Persona(Name="Jean", LastName="Rada", Age=21)
+estudiante = student.Student(Name='Anahi', LastName='Abigail')
+profesional = student.Profesional(Name="Breta")
 
-print(estudiante.get_info())
+print(persona.get_infoPersona())
 
-print("+"*30)
+print("+"*40)
 
-estudiante_2 = Student(Name="Maria", Age=16)
+print(estudiante.get_infoEstudent(carrera='Ing.Sistemas'))
 
-print(estudiante_2.get_info())
+print('+'*40)
+
+print(profesional.get_infoProfesional(carrera='Ing. Electrica', profesion='Lic. Economia', experiencia='Si'))
