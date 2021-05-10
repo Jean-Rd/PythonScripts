@@ -12,27 +12,38 @@ class Persona:
         return "Class Persona: Ingrese Name, LastName ^ Age"
 
     def get_infoPersona(self):
-        return f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}"
 
-    def exp_lab(self, experiencia):
-
-        return f"Experiencia laboral: {experiencia}"
+        print("\t\tPersona:")
+        print(f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}")
 
 class Student(Persona):
+
+    def __init__(self, carrera, **kwargs):
+
+        super().__init__(**kwargs)
+        self.carrera = carrera
 
     def __str__(self):
         return "Class Student: Ingrese Name, LastName, Age ^ carrera"
 
-    def get_infoEstudent(self, carrera):
+    def get_infoEstudent(self):
 
-        return f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}\tCarrera: {carrera}"
+        print('\t\tEstudiante:')
+        print(f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}\tCarrera: {self.carrera}")
 
-class Profesional(Persona):
+class Profesional(Student):
+
+    def __init__(self, experiencia, profesion, carrera, **kwargs):
+
+        super().__init__(carrera, **kwargs)
+        self.profesion = profesion
+        self.experiencia = experiencia
 
     def __str__(self):
         return "Class Profesional: Ingrese Name, LastName, Age, carrera ^ profesion"
 
-    def get_infoProfesional(self, carrera, profesion, experiencia):
+    def get_infoProfesional(self):
 
-        return f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}\tCarrera: {carrera}\nProfesion: {profesion}\n{Persona.exp_lab(self, experiencia)}"
+        print('\t\tProfesional:')
+        print(f"Nombre: {self.nombre}\tApellido: {self.apellidos}\nEdad: {self.edad}\tCarrera: {self.carrera}\nProfesion: {self.profesion}\nExp: {self.experiencia}")
 
